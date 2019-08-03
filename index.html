@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="assets/reset.css">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- Bootstrap CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+<!-- Jumbotron title -->
+<div class="container">
+    <div class="row">
+        <div class="jumbotron jumbotron-fluid col-12" id="header">
+            <div class="container">
+                <h1 class="display-4"><strong>Train Schedule</strong></h1>
+                <p class="lead"><strong>Where are you going today? and how long will you wait for your train?</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Employees card -->
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header">
+                Current Train Schedule
+            </div>
+            <div class="card-body">
+
+                <!-- Table -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                        <th scope="col">Total Billed ($)</th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody>
+                    </tbody> -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <!-- Add Employee Form -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    Add Train
+                </div>
+                <div class="card-body">
+        
+                    <!-- Add Employee Form -->
+                    <form id="my-form">
+                        <div class="form-group">
+                            <label for="InputTrain">Train Name</label>
+                            <input type="text" class="form-control" id="train-name" aria-describedby="Name" placeholder="Train">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputRole">Destination</label>
+                            <input type="text" class="form-control" id="destination" placeholder="Destination">
+                        </div>
+                        <div class="form-group">
+                            <label for="first-train">First Train Time(HH:mm - military time)</label>
+                            <input type="value" class="form-control" id="start-time" placeholder="time">
+                            <!-- <label for="first-train">First Train Time(HH:mm - military time)</label>
+                            <input type="date" class="form-control" id="start-time" placeholder="time"> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="train-frequency">Frequency (min)</label>
+                            <input type="value" class="form-control" id="frequency" placeholder="minutes">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase References -->
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<!-- JavaScript -->
+<script src="javascript/app.js"></script>
+
+</body>
+</html>
