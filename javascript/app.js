@@ -55,7 +55,7 @@ $('#submit').on('click', function(e){
         var nextArrival = "ADD THIS FUNCTIONALITY";
         var minutesAway = "ADD THIS FUNCTIONALITY";
 
-    // checking what we have so far via the console
+    // checking the work aye! or nay, it will be revealed in the console
         console.log('Train: ' + name);
         console.log('Destination: ' + destination);
         console.log('Start Time: ' + startTime);
@@ -66,9 +66,13 @@ $('#submit').on('click', function(e){
     // ========== Dynamically add rows to the table with user input
     
     // create a new table row element
+    // declaring new variable and using jquery to create a table row while assigning  the variable its value 
     var newRow = $('<tr>');
 
     // create variables to store td info
+    // declaring new variables to hold the values of the new table data elements being created using jquery
+    // .text() method is used to get the the combined text contents of each element in the set of matched its matched counterpart
+    // nameTd gets name, destinationTd gets destination, so on and so forth
     var nameTd = $('<td>').text(name);
     var destinationTd = $('<td>').text(destination);
     var startTd = $('<td>').text(startTime);
@@ -76,6 +80,8 @@ $('#submit').on('click', function(e){
     var frequencyTd = $('<td>').text(frequency);
     var totalTd = $('<td>').text(minutesAway);
 
+    
+    
     console.log('Train Td: ' + nameTd);
     console.log('Destination Td : ' + destinationTd);
     console.log('Start Time Td : ' + startTd);
@@ -83,14 +89,22 @@ $('#submit').on('click', function(e){
     console.log('Next Arrival Td : ' + nextArrivalTd);
     console.log('Minutes Away Td : ' + totalTd);
 
+    
     // append table information to newRow
+    // the .append() is used to add the content specified in its content as the last child to the element being selected
+    // new row a variable declared in line 70 with the value of the new row to be creaed is going to have the values of the variables declared from lines 76 to 81 added to it
     newRow.append(nameTd, destinationTd, startTd, nextArrivalTd, frequencyTd, totalTd);
 
     // append the newrow to the table body
+    // the .append() is used to add the content specified in its content as the last child to the element being selected
+    // the contents of newRow are being added to table body
     $('tbody').append(newRow);
 
 
     // code for handling the push to the database
+    // A Reference represents a specific location in your Database and can be used for reading or writing data to that Database location (firebase - docs - reference)
+    // in this case the method push is used to add the child to the firebase data as opposed to replacing it whe .set()is used
+    // the child being added has its values in key pairs, not all of the being appended on the pages is being passed to the database
     database.ref().push( {
         name: name,
         destination: destination,
@@ -99,18 +113,24 @@ $('#submit').on('click', function(e){
     });
 
     // clear form
+    // the trigger() method is being used to clear the div selected (the fillable form in this case); user inputs the information and on click trigger() clears the form and is ready for the next input  
     $('#my-form').trigger('reset');
 
 });
 
 
     // Firebase watcher .on('child-added)
+    // A Reference represents a specific location in your Database and can be used for reading or writing data to that Database location (firebase - docs - reference)
+    // The child_added event is typically used when retrieving a list of items from the database. Unlike value which returns the entire contents of the location, child_added is triggered once for each existing child and then again every time a new child is added to the specified path (firebase-real time database - docs - guides)
+    // on child added, the function snapshot will be be run
     database.ref().on('child_added', function(snapshot) {
+        
         // create a new variable for snapshot for convenience
+        // A snapshot is a picture of the data at a particular database reference at a single point in time
         var sv = snapshot.val();
         console.log("snapshot: " + sv);
 
         // Handle the errors
-    }, function(errorOjbect) {
-            console.log("Errors handled: " + errorOjbect.code);
+    }, function(errorObject) {
+            console.log("Errors handled: " + errorObject.code);
     });
