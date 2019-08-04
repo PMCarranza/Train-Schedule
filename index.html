@@ -32,6 +32,9 @@
 
 <!-- Style CSS -->
 <!-- links to the stylesheets being used -->
+<!-- link tells the browser where to find the documents listed -->
+<!-- rel specifies the relationship between html the file linked -->
+<!-- href specifies the path to the css (in this case) files -->
 <link rel="stylesheet" href="assets/reset.css">
 <link rel="stylesheet" href="assets/style.css">
 
@@ -62,17 +65,22 @@
     </div>
 
     <!-- Train card -->
-    <!-- header for the card containing the train schedules -->
+    <!-- div containing the table for train schedule -->
     <div class="row">
         <div class="card col-12">
+
+        <!-- div containg header for the card containing the train schedules -->
             <div class="card-header">
                 Current Train Schedule
-            </div>
+            </div>  <!--closes card header-->
+
+        <!-- div containing the table -->
             <div class="card-body">
-                <!-- Table -->
+            <!-- Table -->
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                    <!-- table headers -->
                         <th scope="col">Train Name</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Frequency (min)</th>
@@ -80,13 +88,15 @@
                         <th scope="col">Minutes Away</th>
                         <th scope="col">Total Billed ($)</th>
                         </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
+                    </thead>  <!--closes headers-->
+                </table>  <!--closes table-->
+            </div>  <!--container for table-->
+        </div>  <!--closes container for card-->
+    </div>  <!--closes main container for train schedule-->
 
         <!-- Add Trains Form -->
+
+        <!-- in similar fashion as above, below there are containers within containers wrapping around a card and a form where the user input is collected to be manipulated as needed  -->
     <div class="row">
         <div class="col-12">
             <div class="card card-default">
@@ -122,14 +132,24 @@
 </div>
 
 <!-- Firebase References -->
+<!-- required core firebase JS SDK -->
+<!-- sdk stands for software development kit, this brings togehter the group of tools needed for the programming of mobile applications-->
+<!-- implements the client-side libraries used by applications using firebase services (firebase-docs-reference-->
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
 <!-- jQuery -->
+<!-- linking to jquery library with an absolute url -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- JavaScript -->
+<!-- linking to internal js document-->
+<!-- the script element is used to indicate that the document between the opening and closing tags is written in jasvascript -->
+<!-- src tells the browser where to find the document in this case a relative url is being used -->
 <script src="javascript/app.js"></script>
 
+<!-- body closing tag -->
 </body>
+
+<!-- html document closing tag -->
 </html>
