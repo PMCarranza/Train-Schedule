@@ -3,16 +3,19 @@ body{
 }
 
 #header{
-    background-color:pink;
+    background-color: #3c9ec2;
     text-align: center;
-    border:none;
     border-radius: 20px;
 }
 
-.display-4{
-    color: red;
+#header .display-4{
+    font-size: 4em;
+    color:#eee;
+    font-weight: 900;
 }
 
-.lead{
-    color: blue;
+#header .lead{
+    font-size: 2em;
+    color: rgb(190, 179, 179);
+    font-weight: bold;
 }

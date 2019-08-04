@@ -1,40 +1,74 @@
+<!-- this is a declaration not an html tag, it must be the first line in the html document, it is an instruction to the web browser about what version of html the page is written in.-->
 <!DOCTYPE html>
+
+<!-- the html tag tells the browser this is an html document-->
+<!-- needs a closing tag -->
+<!-- the lang attribute is used to declare the language of a web page (or a portion of it) it is meant to assist search engines and browsers-->
 <html lang="en">
+
+<!-- container for all the head elements -->
+<!-- head elements can include, the ones listed below plus script-->
+<!-- needs a closing tag -->
 <head>
+
+<!-- the meta tag provided metadata about the html document, this will not be displayed on the page but can be analyzed by the computer-->
+<!-- meta is information about information -->
+<!-- charset utf-8 specifies the the character encoding for this html docuement-->
+<!-- utf=8 can represent any character in the unicode standard and it is preferred for encoding emails and web pages-->
 <meta charset="UTF-8">
+
+<!-- the viewport element gives instruction to the browser to handle the page's size and scale -->
+<!-- the content is being told to display following the size of the screen it is being viewed on; inital scale sets the zoom level when the page is first loaded -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- the http-equiv attribute provides and http header for the information or value of the content attribute -->
+<!-- the content attribute is targeting a web browser developed by microsoft -->
+<!-- this is recommended if for example IE9, IE8 need to be supported -->
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Document</title>
+
+<!-- this is what will display on the window tab or at the top of the browsing window -->
+<title>Train Schedule</title>
 
 
 <!-- Style CSS -->
+<!-- links to the stylesheets being used -->
 <link rel="stylesheet" href="assets/reset.css">
 <link rel="stylesheet" href="assets/style.css">
 
 <!-- Bootstrap CDN-->
+<!-- link to the bootstrap library -->
+<!-- Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles (from bootstrap documentation -->
+<!-- bootstrap needs to be used wiht html5 doctyp, otherwise we might see some funky stuff happen -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
+<!-- closing tag for the head element -->
 </head>
+
+<!-- tag that contains all the elements to be displayed on web page, needs a closing tag -->
 <body>
+
 <!-- Jumbotron title -->
+<!-- calls extra attention to the information contained within -->
+<!-- uses divs and classes as primary targeting elements -->
+<!-- an id has been added to one of the divs -->
 <div class="container">
     <div class="row">
         <div class="jumbotron jumbotron-fluid col-12" id="header">
             <div class="container">
-                <h1 class="display-4"><strong>Train Schedule</strong></h1>
-                <p class="lead"><strong>Where are you going today? and how long will you wait for your train?</strong></p>
+                <h1 class="display-4">Train Schedule</h1>
+                <p class="lead">Where are you going today? and how long will you wait for your train?</p>
             </div>
         </div>
     </div>
 
-    <!-- Current Employees card -->
+    <!-- Train card -->
+    <!-- header for the card containing the train schedules -->
     <div class="row">
         <div class="card col-12">
             <div class="card-header">
                 Current Train Schedule
             </div>
             <div class="card-body">
-
                 <!-- Table -->
                 <table class="table table-striped">
                     <thead>
@@ -47,14 +81,12 @@
                         <th scope="col">Total Billed ($)</th>
                         </tr>
                     </thead>
-                    <!-- <tbody>
-                    </tbody> -->
                 </table>
             </div>
         </div>
     </div>
 
-        <!-- Add Employee Form -->
+        <!-- Add Trains Form -->
     <div class="row">
         <div class="col-12">
             <div class="card card-default">
@@ -76,8 +108,6 @@
                         <div class="form-group">
                             <label for="first-train">First Train Time(HH:mm - military time)</label>
                             <input type="value" class="form-control" id="start-time" placeholder="time">
-                            <!-- <label for="first-train">First Train Time(HH:mm - military time)</label>
-                            <input type="date" class="form-control" id="start-time" placeholder="time"> -->
                         </div>
                         <div class="form-group">
                             <label for="train-frequency">Frequency (min)</label>
