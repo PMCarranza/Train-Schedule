@@ -48,20 +48,24 @@ $('#submit').on('click', function(e){
     // ========= Store inputs in variable
     // each variable defined is being set with the value of its corresponding input field using the .val() method
     // .trim() method is being used to remove white spaces at both sides of the string w/o changing the user input
-        var name = $('#train-name').val().trim();
-        var destination = $('#destination').val().trim();
-        var startTime = $('#start-time').val().trim();
-        var frequency = $('#frequency').val().trim();
-        var nextArrival = "ADD THIS FUNCTIONALITY";
-        var minutesAway = "ADD THIS FUNCTIONALITY";
+    var rightNow = moment().format('HH:mm');
+    var name = $('#train-name').val().trim();
+    var destination = $('#destination').val().trim();
+    var frequency = $('#frequency').val().trim();
+    var startTime = $('#start-time').val().trim();
+    var nextArrival = startTime - rightNow;
+    var minutesAway = "ADD THIS FUNCTIONALITY";
+
 
     // checking the work aye! or nay, it will be revealed in the console
-        console.log('Train: ' + name);
-        console.log('Destination: ' + destination);
-        console.log('Start Time: ' + startTime);
-        console.log('Frequency: ' + frequency);
-        console.log('Next Arrival: ' + nextArrival);
-        console.log('Minutes Away: ' + minutesAway);
+    console.log('Train: ' + name);
+    console.log('Destination: ' + destination);
+    console.log('Frequency: ' + frequency);
+    console.log('Next Arrival: ' + nextArrival);
+    console.log('Minutes Away: ' + minutesAway);
+    console.log('Start Time: ' + startTime);
+    console.log(moment().format('HH:mm'));
+
 
     // ========== Dynamically add rows to the table with user input
     
@@ -75,25 +79,26 @@ $('#submit').on('click', function(e){
     // nameTd gets name, destinationTd gets destination, so on and so forth
     var nameTd = $('<td>').text(name);
     var destinationTd = $('<td>').text(destination);
-    var startTd = $('<td>').text(startTime);
-    var nextArrivalTd = $('<td>').text(nextArrival);
     var frequencyTd = $('<td>').text(frequency);
+    var nextArrivalTd = $('<td>').text(nextArrival);
     var totalTd = $('<td>').text(minutesAway);
+    var startTd = $('<td>').text(startTime);
+
 
     
     
     console.log('Train Td: ' + nameTd);
     console.log('Destination Td : ' + destinationTd);
-    console.log('Start Time Td : ' + startTd);
     console.log('Frequency Td : ' + frequencyTd);
     console.log('Next Arrival Td : ' + nextArrivalTd);
+    console.log('Start Time Td : ' + startTd);
     console.log('Minutes Away Td : ' + totalTd);
-
+    console.log('Start Time Td : ' + startTd);
     
     // append table information to newRow
     // the .append() is used to add the content specified in its content as the last child to the element being selected
     // new row a variable declared in line 70 with the value of the new row to be creaed is going to have the values of the variables declared from lines 76 to 81 added to it
-    newRow.append(nameTd, destinationTd, startTd, nextArrivalTd, frequencyTd, totalTd);
+    newRow.append(nameTd, destinationTd, frequencyTd, nextArrivalTd, totalTd);
 
     // append the newrow to the table body
     // the .append() is used to add the content specified in its content as the last child to the element being selected

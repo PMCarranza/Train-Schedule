@@ -44,6 +44,11 @@
 <!-- bootstrap needs to be used wiht html5 doctyp, otherwise we might see some funky stuff happen -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
+<!-- Adds Moment JS -->
+<!-- api that give us the functionality to work with times and dates -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <!-- closing tag for the head element -->
 </head>
 
@@ -86,7 +91,7 @@
                         <th scope="col">Frequency (min)</th>
                         <th scope="col">Next Arrival</th>
                         <th scope="col">Minutes Away</th>
-                        <th scope="col">Total Billed ($)</th>
+                        <!-- <th scope="col">Total Billed ($)</th> -->
                         </tr>
                     </thead>  <!--closes headers-->
                     <tbody> <!--table body to contain train schedule-->
@@ -118,7 +123,7 @@
                             <input type="text" class="form-control" id="destination" placeholder="Destination">
                         </div>
                         <div class="form-group">
-                            <label for="first-train">First Train Time(HH:mm - military time)</label>
+                            <label for="first-train">First Train Time (HH:mm - military time)</label>
                             <input type="value" class="form-control" id="start-time" placeholder="time">
                         </div>
                         <div class="form-group">
