@@ -48,23 +48,48 @@ $('#submit').on('click', function(e){
     // ========= Store inputs in variable
     // each variable defined is being set with the value of its corresponding input field using the .val() method
     // .trim() method is being used to remove white spaces at both sides of the string w/o changing the user input
-    var rightNow = moment().format('HH:mm');
     var name = $('#train-name').val().trim();
     var destination = $('#destination').val().trim();
     var frequency = $('#frequency').val().trim();
     var startTime = $('#start-time').val().trim();
-    var nextArrival = startTime - rightNow;
-    var minutesAway = "ADD THIS FUNCTIONALITY";
-
-
-    // checking the work aye! or nay, it will be revealed in the console
+    var nextArrival;
+    var minutesAway;
+    
+    //checking the work aye! or nay, it will be revealed in the console
     console.log('Train: ' + name);
     console.log('Destination: ' + destination);
     console.log('Frequency: ' + frequency);
-    console.log('Next Arrival: ' + nextArrival);
-    console.log('Minutes Away: ' + minutesAway);
     console.log('Start Time: ' + startTime);
-    console.log(moment().format('HH:mm'));
+    
+    
+    // variable capturing the value of rightNow in hours and minutes
+    // moment.js is an open source JavaScript library that removes the need to use the native JavaScript Date object directly
+    var rightNowForMath = moment(startTime, 'HH:mm');
+    
+    // variable capturing the difference in minutes between now and when rightNowForMath was captured
+    var diffTime = moment().diff(moment(rightNowForMath), 'minutes');
+    console.log('diffTime ==> ', diffTime);
+
+    // variable capturing the the time left until next train
+    var timeLeft = diffTime % frequency;
+    console.log('time left until ==> ', timeLeft);
+
+    // figuring out how many minutes until next train
+    minutesAway = frequency - timeLeft;
+    console.log('MINUTES TILL TRAIN ==> ', minutesAway);
+
+    // time of next train using add()
+    // To add time, pass the key of what time you want to add, and the amount you want to add.  (moment.js>docs>manipulate)
+    nextArrival = moment().add(minutesAway, 'minutes');
+
+    // .format tells the browser how to display the time captured using the tokens inside qoutes inside parenthesis
+    // this case 00:00 am
+    console.log('now--> ', moment().format('hh:mm a'));
+
+    // this case 00:00 AM
+    console.log("ARRIVAL TIME: ", moment(nextArrival).format('hh:mm A'));
+
+    console.log('Minutes Away: ' + minutesAway);
 
 
     // ========== Dynamically add rows to the table with user input
@@ -80,20 +105,9 @@ $('#submit').on('click', function(e){
     var nameTd = $('<td>').text(name);
     var destinationTd = $('<td>').text(destination);
     var frequencyTd = $('<td>').text(frequency);
-    var nextArrivalTd = $('<td>').text(nextArrival);
+    var nextArrivalTd = $('<td>').text(moment(nextArrival).format('hh:mm A'));  // time will be displayed 00:00 AM
     var totalTd = $('<td>').text(minutesAway);
     var startTd = $('<td>').text(startTime);
-
-
-    
-    
-    console.log('Train Td: ' + nameTd);
-    console.log('Destination Td : ' + destinationTd);
-    console.log('Frequency Td : ' + frequencyTd);
-    console.log('Next Arrival Td : ' + nextArrivalTd);
-    console.log('Start Time Td : ' + startTd);
-    console.log('Minutes Away Td : ' + totalTd);
-    console.log('Start Time Td : ' + startTd);
     
     // append table information to newRow
     // the .append() is used to add the content specified in its content as the last child to the element being selected
@@ -133,7 +147,7 @@ $('#submit').on('click', function(e){
         // create a new variable for snapshot for convenience
         // A snapshot is a picture of the data at a particular database reference at a single point in time
         var sv = snapshot.val();
-        console.log("snapshot: " + sv);
+        // console.log("snapshot: " + sv);
 
         // Handle the errors
     }, function(errorObject) {
