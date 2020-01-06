@@ -9,154 +9,175 @@
 <!-- container for all the head elements -->
 <!-- head elements can include, the ones listed below plus script-->
 <!-- needs a closing tag -->
+
 <head>
 
-<!-- the meta tag provided metadata about the html document, this will not be displayed on the page but can be analyzed by the computer-->
-<!-- meta is information about information -->
-<!-- charset utf-8 specifies the the character encoding for this html docuement-->
-<!-- utf=8 can represent any character in the unicode standard and it is preferred for encoding emails and web pages-->
-<meta charset="UTF-8">
+    <!-- the meta tag provided metadata about the html document, this will not be displayed on the page but can be analyzed by the computer-->
+    <!-- meta is information about information -->
+    <!-- charset utf-8 specifies the the character encoding for this html docuement-->
+    <!-- utf=8 can represent any character in the unicode standard and it is preferred for encoding emails and web pages-->
+    <meta charset="UTF-8">
 
-<!-- the viewport element gives instruction to the browser to handle the page's size and scale -->
-<!-- the content is being told to display following the size of the screen it is being viewed on; inital scale sets the zoom level when the page is first loaded -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- the viewport element gives instruction to the browser to handle the page's size and scale -->
+    <!-- the content is being told to display following the size of the screen it is being viewed on; inital scale sets the zoom level when the page is first loaded -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- the http-equiv attribute provides and http header for the information or value of the content attribute -->
-<!-- the content attribute is targeting a web browser developed by microsoft -->
-<!-- this is recommended if for example IE9, IE8 need to be supported -->
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- the http-equiv attribute provides and http header for the information or value of the content attribute -->
+    <!-- the content attribute is targeting a web browser developed by microsoft -->
+    <!-- this is recommended if for example IE9, IE8 need to be supported -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<!-- this is what will display on the window tab or at the top of the browsing window -->
-<title>Train Schedule</title>
+    <!-- this is what will display on the window tab or at the top of the browsing window -->
+    <title>Train Schedule</title>
 
 
-<!-- Style CSS -->
-<!-- links to the stylesheets being used -->
-<!-- link tells the browser where to find the documents listed -->
-<!-- rel specifies the relationship between html the file linked -->
-<!-- href specifies the path to the css (in this case) files -->
-<link rel="stylesheet" href="assets/reset.css">
-<link rel="stylesheet" href="assets/style.css">
+    <!-- Style CSS -->
+    <!-- links to the stylesheets being used -->
+    <!-- link tells the browser where to find the documents listed -->
+    <!-- rel specifies the relationship between html the file linked -->
+    <!-- href specifies the path to the css (in this case) files -->
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
 
-<!-- Bootstrap CDN-->
-<!-- link to the bootstrap library -->
-<!-- Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles (from bootstrap documentation -->
-<!-- bootstrap needs to be used wiht html5 doctyp, otherwise we might see some funky stuff happen -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Bootstrap CDN-->
+    <!-- link to the bootstrap library -->
+    <!-- Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the normalization of cross browser styles (from bootstrap documentation -->
+    <!-- bootstrap needs to be used wiht html5 doctyp, otherwise we might see some funky stuff happen -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<!-- Adds Moment JS -->
-<!-- api that give us the functionality to work with times and dates -->
+    <!-- Adds Moment JS -->
+    <!-- api that give us the functionality to work with times and dates -->
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<!-- closing tag for the head element -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- closing tag for the head element -->
 </head>
 
 <!-- tag that contains all the elements to be displayed on web page, needs a closing tag -->
+
 <body>
 
-<!-- Jumbotron title -->
-<!-- calls extra attention to the information contained within -->
-<!-- uses divs and classes as primary targeting elements -->
-<!-- an id has been added to one of the divs -->
-<div class="container">
-    <div class="row">
-        <div class="jumbotron jumbotron-fluid col-12" id="header">
-            <div class="container">
-                <h1 class="display-4">Train Schedule</h1>
-                <p class="lead">Where are you going today? and how long will you wait for your train?</p>
+    <!-- Jumbotron title -->
+    <!-- calls extra attention to the information contained within -->
+    <!-- uses divs and classes as primary targeting elements -->
+    <!-- an id has been added to one of the divs -->
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron jumbotron-fluid col-12" id="header">
+                <div class="container">
+                    <h1 class="display-4">Train Schedule</h1>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Train card -->
-    <!-- div containing the table for train schedule -->
-    <div class="row">
-        <div class="card col-12">
+        <p id="head1">Choose your destination<br>how long will you wait for the next train?</p>
 
-        <!-- div containg header for the card containing the train schedules -->
-            <div class="card-header">
-                Current Train Schedule
-            </div>  <!--closes card header-->
 
-        <!-- div containing the table -->
-            <div class="card-body">
-            <!-- Table -->
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                    <!-- table headers -->
-                        <th scope="col">Train Name</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Frequency (min)</th>
-                        <th scope="col">Next Arrival</th>
-                        <th scope="col">Minutes Away</th>
-                        <!-- <th scope="col">Total Billed ($)</th> -->
-                        </tr>
-                    </thead>  <!--closes headers-->
-                    <tbody> <!--table body to contain train schedule-->
-                    </tbody>    <!--closing tag for the table body-->       
-                </table>  <!--closes table-->
-            </div>  <!--container for table-->
-        </div>  <!--closes container for card-->
-    </div>  <!--closes main container for train schedule-->
+        <!-- Train card -->
+        <!-- div containing the table for train schedule -->
+        <div class="row">
+            <div class="card col-12">
+
+                <!-- div containg header for the card containing the train schedules -->
+                <div class="card-header">
+                    Current Train Schedule
+                </div>
+                <!--closes card header-->
+
+                <!-- div containing the table -->
+                <div class="card-body">
+                    <!-- Table -->
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <!-- table headers -->
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                                <!-- <th scope="col">Total Billed ($)</th> -->
+                            </tr>
+                        </thead>
+                        <!--closes headers-->
+                        <tbody>
+                            <!--table body to contain train schedule-->
+                        </tbody>
+                        <!--closing tag for the table body-->
+                    </table>
+                    <!--closes table-->
+                </div>
+                <!--container for table-->
+            </div>
+            <!--closes container for card-->
+        </div>
+        <!--closes main container for train schedule-->
 
         <!-- Add Trains Form -->
 
         <!-- in similar fashion as above, below there are containers within containers wrapping around a card and a form where the user input is collected to be manipulated as needed  -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card card-default">
-                <div class="card-header">
-                    Add Train
-                </div>
-                <div class="card-body">
-        
-                    <!-- Add Employee Form -->
-                    <form id="my-form">
-                        <div class="form-group">
-                            <label for="InputTrain">Train Name</label>
-                            <input type="text" class="form-control" id="train-name" aria-describedby="Name" placeholder="Train">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputRole">Destination</label>
-                            <input type="text" class="form-control" id="destination" placeholder="Destination">
-                        </div>
-                        <div class="form-group">
-                            <label for="first-train">First Train Time (HH:mm - military time)</label>
-                            <input type="value" class="form-control" id="start-time" placeholder="time">
-                        </div>
-                        <div class="form-group">
-                            <label for="train-frequency">Frequency (min)</label>
-                            <input type="value" class="form-control" id="frequency" placeholder="minutes">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </form>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Add Employee Form -->
+                        <form id="my-form">
+                            <div class="form-group">
+                                <label for="InputTrain">Train Name</label>
+                                <input type="text" class="form-control" id="train-name" aria-describedby="Name"
+                                    placeholder="Train">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputRole">Destination</label>
+                                <input type="text" class="form-control" id="destination" placeholder="Destination">
+                            </div>
+                            <div class="form-group">
+                                <label for="first-train">First Train Time (HH:mm - military time)</label>
+                                <input type="value" class="form-control" id="start-time" placeholder="Time">
+                            </div>
+                            <div class="form-group">
+                                <label for="train-frequency">Frequency (min)</label>
+                                <input type="value" class="form-control" id="frequency" placeholder="Minutes">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Firebase References -->
-<!-- required core firebase JS SDK -->
-<!-- sdk stands for software development kit, this brings togehter the group of tools needed for the programming of mobile applications-->
-<!-- implements the client-side libraries used by applications using firebase services (firebase-docs-reference-->
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <!-- Firebase References -->
+    <!-- required core firebase JS SDK -->
+    <!-- sdk stands for software development kit, this brings togehter the group of tools needed for the programming of mobile applications-->
+    <!-- implements the client-side libraries used by applications using firebase services (firebase-docs-reference-->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
-<!-- jQuery -->
-<!-- linking to jquery library with an absolute url -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- jQuery -->
+    <!-- linking to jquery library with an absolute url -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-<!-- JavaScript -->
-<!-- linking to internal js document-->
-<!-- the script element is used to indicate that the document between the opening and closing tags is written in jasvascript -->
-<!-- src tells the browser where to find the document in this case a relative url is being used -->
-<script src="javascript/app.js"></script>
+    <!-- JavaScript -->
+    <!-- linking to internal js document-->
+    <!-- the script element is used to indicate that the document between the opening and closing tags is written in jasvascript -->
+    <!-- src tells the browser where to find the document in this case a relative url is being used -->
+    <script src="javascript/app.js"></script>
 
-<!-- body closing tag -->
+    <footer>
+        <div id="foot">
+            <p id="pie">Marino Carranza 2019</p>
+        </div>
+        
+    </footer>
+
+    <!-- body closing tag -->
 </body>
 
 <!-- html document closing tag -->
+
 </html>

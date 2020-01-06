@@ -1,34 +1,63 @@
 body{
+    max-width: 95%;
+    margin: auto;
     font-size: 18px;
 }
 
+.jumbotron {
+    margin-top: 2.5%;
+    background-image: url("../assets/images/tren.jpeg");
+    background-size: 45%;
+}
+
 #header{
-    background-color: #3c9ec2;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 25% 10%;
 }
 
 #header .display-4{
-    font-size: 4em;
+    font-size: 5vw;
     color:#eee;
     font-weight: 900;
+    text-shadow: 8px 8px rgba(151, 51, 4, 0.911);
 }
 
-#header .lead{
-    font-size: 2em;
-    color: rgb(190, 179, 179);
+#head1{
+    font-size: 2.5vw;
+    color: slategrey;
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 2.5%;
+}
+
+.card-header, th, label{
+    font-size: 2vw;
+    font-weight: bold;
+    color:slategrey;
 }
 
 .card.col-12{
     padding: 0;
-    margin-bottom: 20px;
-}
-
-div.card-body{
-    padding-top: 0px;
+    margin-bottom: 2.5%;
 }
 
 div.card-body th{
     border-top:0;
+}
+
+footer{
+    margin-top: 5%;
+}
+
+#pie{
+    font-size: 1vw;
+    color: whitesmoke;
+    padding: 1%;
+    font-weight: bold;
+    text-align: center;
+}
+#foot{
+    background-color: slategrey;
+    width: 95%;
+    margin: auto;
 }
